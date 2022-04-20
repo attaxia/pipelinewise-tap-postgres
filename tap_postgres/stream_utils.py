@@ -72,7 +72,7 @@ def refresh_streams_schema(conn_config: Dict, streams: List[Dict]):
             for stream in discover_db(conn, conn_config.get('filter_schemas'), [st['table_name'] for st in streams])
         }
 
-           LOGGER.debug('New discovery schemas %s', new_discovery)
+    LOGGER.debug('New discovery schemas %s', new_discovery)
 
     # For every stream, update the schema and metadata from the new discovery
     for idx, stream in enumerate(streams):
@@ -92,7 +92,7 @@ def refresh_streams_schema(conn_config: Dict, streams: List[Dict]):
         updated_original_metadata_list = metadata.to_list(original_stream_metadata_map)
 
         # Copy the updated metadata back into the original data structure that was passed in
-        streams[idx]['metadata'] = copy.deepcopy(updated_original_metadata_list))
+        streams[idx]['metadata'] = copy.deepcopy(updated_original_metadata_list)
 
     LOGGER.debug('Updated streams schemas %s', streams)
 
